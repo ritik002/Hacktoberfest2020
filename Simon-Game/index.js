@@ -18,6 +18,7 @@ const bottomright = document.querySelector("#bottomright");
 const strictButton = document.querySelector("#strict");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
+const head = document.getElementsByTagName("h1")[0]; //SELECTED HEADING HERE USING getElementsByTagName
 
 strictButton.addEventListener('click',(event) => {   //change or click samething
   if(strictButton.checked == true){
@@ -31,6 +32,8 @@ onButton.addEventListener('click',(event) => {   //change or click samething
   if(onButton.checked == true){
     on = true;
     turnCounter.innerHTML = "--";
+    head.innerHTML = "LEVEL 1";  //Updating innerHTML of heading
+
   }else{
     on = false;
     turnCounter.innerHTML = "";
@@ -200,6 +203,7 @@ function check() {
       clearColor();
       if(strict){
         play();
+        head.innerHTML = "LEVEL 1"; //If Strict Reset the Level Else level remain same
       }else{
         compTurn = true;
         flash = 0;
@@ -212,6 +216,7 @@ function check() {
   }
   if(turn == playerOrder.length && good && !win){
     turn++;
+    head.innerHTML= "LEVEL "+ turn; //Updating level at each turn 
     playerOrder = [];
     compTurn = true;
     flash = 0;
